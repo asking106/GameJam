@@ -4453,6 +4453,7 @@ MonoBehaviour:
   - {fileID: 37453555}
   - {fileID: 584852680}
   - {fileID: 1626163889}
+  dialogsCount: 0
 --- !u!1 &1058702718
 GameObject:
   m_ObjectHideFlags: 0

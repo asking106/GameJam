@@ -8,7 +8,7 @@ public class NPCdialog : MonoBehaviour
     private bool isin=false;
     private Playermovement playermove;
     public GameObject[] dialogs;
-    private int dialogsCount = 0;
+    public int dialogsCount = 0;
     // Start is called before the first frame update
 
     public void Update()
@@ -23,6 +23,13 @@ public class NPCdialog : MonoBehaviour
                 return;
 
             }
+            else
+            {
+                playermove.enabled=false;
+            }
+            
+
+            if(dialogsCount!=0)
             dialogs[dialogsCount-1].SetActive(false);
             dialogs[dialogsCount].SetActive(true);
             dialogsCount++;
@@ -30,27 +37,33 @@ public class NPCdialog : MonoBehaviour
 
          }
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        { 
+                
+                 playermove= collision.GetComponent<Playermovement>();
+                 
+                isin = true;
+
+
+             
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (Input.GetKey(KeyCode.E)&&!isin)
-            {
-                playermove = collision.gameObject.GetComponent<Playermovement>();
-                playermove.enabled = false;
-                
-                isin = true;
-                dialogs[dialogsCount].SetActive(true);
-                dialogsCount++;
 
 
-            }
+
+            isin = false;
+
+
+
         }
     }
-    private void OnTriggerExit(Collider other)
-    {
-
-    }
+    
     public void setback()
     {
         playermove.enabled = true;
