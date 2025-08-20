@@ -6,10 +6,14 @@ public class PhonePanelController : MonoBehaviour
 {
     public RectTransform phonePanel;    
     public GameObject attributePanel;   
-    public GameObject infoPanel;          
+    public GameObject infoPanel;
+    public GameObject BagPanel;
     public Button btnAttribute;          
-    public Button btnInfo;                
+    public Button btnInfo;
+    public Button btnBag;
     public float showAnimTime = 0.3f;     
+    public Button btnBack;
+    
 
     private bool isPanelVisible = false;
     private Vector2 hiddenPos;
@@ -27,9 +31,16 @@ public class PhonePanelController : MonoBehaviour
 
         attributePanel.SetActive(false);
         infoPanel.SetActive(false);
+        BagPanel.SetActive(false);
 
         btnAttribute.onClick.AddListener(ShowAttributePanel);
         btnInfo.onClick.AddListener(ShowInfoPanel);
+        btnBag.onClick.AddListener(ShowBagPanel);
+        if (btnBack != null)
+        {
+            btnBack.onClick.AddListener(ReturnToHome);
+            btnBack.gameObject.SetActive(false);
+        }
     }
 
     void Update()
@@ -50,6 +61,10 @@ public class PhonePanelController : MonoBehaviour
         if (animCoroutine != null) StopCoroutine(animCoroutine);
         animCoroutine = StartCoroutine(PanelMoveAnim(hiddenPos, shownPos));
         Time.timeScale = 0f; // 暂停游戏
+        attributePanel.SetActive(false);
+        infoPanel.SetActive(false);
+        BagPanel.SetActive(false);
+        if (btnBack != null) btnBack.gameObject.SetActive(false);
     }
 
     void HidePhonePanel()
@@ -77,11 +92,30 @@ public class PhonePanelController : MonoBehaviour
     {
         attributePanel.SetActive(true);
         infoPanel.SetActive(false);
+        BagPanel.SetActive(false);
+        if (btnBack != null) btnBack.gameObject.SetActive(true);
     }
 
     void ShowInfoPanel()
     {
         attributePanel.SetActive(false);
+        BagPanel.SetActive(false);
         infoPanel.SetActive(true);
+        if (btnBack != null) btnBack.gameObject.SetActive(true);
+    }
+    void ShowBagPanel()
+    {
+        attributePanel.SetActive(false);
+        infoPanel.SetActive(false);
+        BagPanel.SetActive(true);
+        if (btnBack != null) btnBack.gameObject.SetActive(true);
+    }
+
+    void ReturnToHome()
+    {
+        attributePanel.SetActive(false);
+        infoPanel.SetActive(false);
+        BagPanel.SetActive(false);
+        if (btnBack != null) btnBack.gameObject.SetActive(false);
     }
 }
