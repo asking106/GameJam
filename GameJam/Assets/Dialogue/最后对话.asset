@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762142ea9550b4b40a6b2f4381b09b1f, type: 3}
+  m_Name: "\u6700\u540E\u5BF9\u8BDD"
+  m_EditorClassIdentifier: 
+  nodes:
+  - text: "\u4F60\u75AF\u4E86\uFF1F\uFF01\u4F60\u5728\u5E72\u4EC0\u4E48\u554A\uFF1F\uFF1F"
+    choices: []
+    nextNodeIndex: 1
+    speakerName: "\u674E\u900D\u9065"
+    speakerPortrait: {fileID: 21300000, guid: 3b8c6a5be3823f846b80232605dfdac4, type: 3}
+  - text: "\uFF08\u2026\u2026\uFF09"
+    choices: []
+    nextNodeIndex: 2
+    speakerName: "\u8D75\u7075\u513F"
+    speakerPortrait: {fileID: 21300000, guid: 7aacdcb0d9e228a47bf93a8336ef36f7, type: 3}
+  - text: "\u2026\u4F60\u4E0D\u89C9\u5F97\u597D\u5947\u5417\uFF1F\u90A3\u4E9B\u68A6\u5883\uFF0C\u4E3A\u4EC0\u4E48\u90FD\u90A3\u4E48\u4F3C\u66FE\u76F8\u8BC6\uFF1F"
+    choices: []
+    nextNodeIndex: 3
+    speakerName: "\u8D75\u7075\u513F"
+    speakerPortrait: {fileID: 21300000, guid: 7aacdcb0d9e228a47bf93a8336ef36f7, type: 3}
+  - text: "\uFF08\u6320\u5934\uFF09\u662F\u633A\u597D\u5947\u7684\uFF0C\u4F46\u603B\u611F\u89C9\u2026\u2026"
+    choices: []
+    nextNodeIndex: 4
+    speakerName: "\u674E\u900D\u9065"
+    speakerPortrait: {fileID: 21300000, guid: 3b8c6a5be3823f846b80232605dfdac4, type: 3}
+  - text: "\u6CA1\u6709\u5408\u9002\u7684\u65F6\u673A\uFF0C\u4E5F\u4E0D\u77E5\u9053\u8BE5\u95EE\u8C01\u3002"
+    choices: []
+    nextNodeIndex: 5
+    speakerName: "\u674E\u900D\u9065"
+    speakerPortrait: {fileID: 21300000, guid: 3b8c6a5be3823f846b80232605dfdac4, type: 3}
+  - text: "\u4E0D\u8FC7\u5176\u5B9E\u6211\u4E5F\u662F\u4E00\u77E5\u534A\u89E3\u3002"
+    choices: []
+    nextNodeIndex: 6
+    speakerName: "\u8D75\u7075\u513F"
+    speakerPortrait: {fileID: 21300000, guid: 7aacdcb0d9e228a47bf93a8336ef36f7, type: 3}
+  - text: "\u53EA\u662F\u6211\u5728\u60F3\u2026\u6211\u4EEC\u8FD9\u6837\uFF0C\u7B97\u4E0D\u7B97\u201C\u5E73\u884C\u65F6\u7A7A\u201D\uFF1F"
+    choices: []
+    nextNodeIndex: 7
+    speakerName: "\u8D75\u7075\u513F"
+    speakerPortrait: {fileID: 21300000, guid: 7aacdcb0d9e228a47bf93a8336ef36f7, type: 3}
+  - text: "\u5E73\u884C\u65F6\u7A7A\uFF1F\u4EC0\u4E48\u610F\u601D\uFF1F\u79D1\u5E7B\u7247\u91CC\u90A3\u79CD\uFF1F"
+    choices: []
+    nextNodeIndex: 8
+    speakerName: "\u674E\u900D\u9065"
+    speakerPortrait: {fileID: 21300000, guid: 3b8c6a5be3823f846b80232605dfdac4, type: 3}
+  - text: "\u610F\u601D\u662F\u2014\u2014\u4E5F\u8BB8\u5B58\u5728\u53E6\u4E00\u4E2A\u4E16\u754C"
+    choices: []
+    nextNodeIndex: 9
+    speakerName: "\u8D75\u7075\u513F"
+    speakerPortrait: {fileID: 21300000, guid: 7aacdcb0d9e228a47bf93a8336ef36f7, type: 3}
+  - text: "\u90A3\u91CC\u7684\u6211\u4EEC\u662F\u4FA0\u5BA2\u3001\u662F\u516C\u4E3B\uFF0C\u7ECF\u5386\u7740\u7231\u6068\u60C5\u4EC7\u2026"
+    choices: []
+    nextNodeIndex: 10
+    speakerName: "\u8D75\u7075\u513F"
+    speakerPortrait: {fileID: 21300000, guid: 7aacdcb0d9e228a47bf93a8336ef36f7, type: 3}
+  - text: "\u800C\u73B0\u5728\u7684\u6211\u4EEC\uFF0C\u662F\u4ED6\u4EEC\u5728\u53E6\u4E00\u4E2A\u7EF4\u5EA6\u7684\u5012\u5F71\u3002"
+    choices: []
+    nextNodeIndex: 11
+    speakerName: "\u8D75\u7075\u513F"
+    speakerPortrait: {fileID: 21300000, guid: 7aacdcb0d9e228a47bf93a8336ef36f7, type: 3}
+  - text: "\u4F60\u7684\u5251\u4F1A\u53D1\u70EB\uFF0C\u6211\u7684\u8840\u80FD\u6551\u4EBA\uFF0C\u8FD9\u4E9B\u201C\u4E0D\u5408\u5E38\u7406\u201D\u7684\u4E8B\u2026"
+    choices: []
+    nextNodeIndex: 12
+    speakerName: "\u8D75\u7075\u513F"
+    speakerPortrait: {fileID: 21300000, guid: 7aacdcb0d9e228a47bf93a8336ef36f7, type: 3}
+  - text: "\u6216\u8BB8\u6B63\u662F\u56E0\u4E3A\u4E24\u4E2A\u4E16\u754C\u6B63\u5728\u91CD\u53E0\u3002"
+    choices: []
+    nextNodeIndex: 13
+    speakerName: "\u8D75\u7075\u513F"
+    speakerPortrait: {fileID: 21300000, guid: 7aacdcb0d9e228a47bf93a8336ef36f7, type: 3}
+  - text: "\u5176\u5B9E\u6211\u5927\u6982\u80FD\u731C\u5230\u2026"
+    choices: []
+    nextNodeIndex: 14
+    speakerName: "\u674E\u900D\u9065"
+    speakerPortrait: {fileID: 21300000, guid: 3b8c6a5be3823f846b80232605dfdac4, type: 3}
+  - text: "\u4F60\u80FD\u731C\u5230\uFF1F"
+    choices: []
+    nextNodeIndex: 15
+    speakerName: "\u8D75\u7075\u513F"
+    speakerPortrait: {fileID: 21300000, guid: 7aacdcb0d9e228a47bf93a8336ef36f7, type: 3}
+  - text: "\u4F60\u770B\u2014\u2014\u4F60\u7684\u80CE\u8BB0\u3001\u6211\u7684\u5251\u2026"
+    choices: []
+    nextNodeIndex: 16
+    speakerName: "\u674E\u900D\u9065"
+    speakerPortrait: {fileID: 21300000, guid: 3b8c6a5be3823f846b80232605dfdac4, type: 3}
+  - text: "\u8FD9\u4E9B\u73A9\u610F\u513F\u6839\u672C\u4E0D\u8BE5\u51FA\u73B0\u5728\u65E5\u5E38\u751F\u6D3B\u91CC\uFF01"
+    choices: []
+    nextNodeIndex: 17
+    speakerName: "\u674E\u900D\u9065"
+    speakerPortrait: {fileID: 21300000, guid: 3b8c6a5be3823f846b80232605dfdac4, type: 3}
+  - text: "\u9664\u975E\u6211\u4EEC\u6D3B\u5728\u4E00\u672C\u5199\u597D\u7684\u5267\u672C\u91CC\uFF01\u800C\u8FD9\u4E9B\u5C31\u662F\u6211\u4EEC\u548C\u53E6\u4E00\u4E2A\u4E16\u754C\u7684\u94FE\u63A5"
+    choices: []
+    nextNodeIndex: 18
+    speakerName: "\u674E\u900D\u9065"
+    speakerPortrait: {fileID: 21300000, guid: 3b8c6a5be3823f846b80232605dfdac4, type: 3}
+  - text: "\u53E6\u4E00\u4E2A\u4E16\u754C\u7684\u6211\u4EEC\u6B63\u5728\u62FC\u547D\u628A\u5267\u60C5\u63B0\u56DE\u6B63\u8F68\uFF01"
+    choices: []
+    nextNodeIndex: 19
+    speakerName: "\u674E\u900D\u9065"
+    speakerPortrait: {fileID: 21300000, guid: 3b8c6a5be3823f846b80232605dfdac4, type: 3}
+  - text: "\u2026\u5176\u5B9E\u6211\u4E5F\u662F\u4E00\u77E5\u534A\u89E3\uFF0C\u4E0D\u8FC7\u76EE\u524D\u4E3A\u6B62\u8FD9\u4E5F\u662F\u6211\u7684\u60F3\u6CD5\u3002"
+    choices: []
+    nextNodeIndex: 20
+    speakerName: "\u8D75\u7075\u513F"
+    speakerPortrait: {fileID: 21300000, guid: 7aacdcb0d9e228a47bf93a8336ef36f7, type: 3}
+  - text: "\u4E0D\u8FC7\u2026\u8FD8\u6709\u4E00\u70B9\u6211\u89C9\u5F97\u5947\u602A\u3002"
+    choices: []
+    nextNodeIndex: 21
+    speakerName: "\u674E\u900D\u9065"
+    speakerPortrait: {fileID: 21300000, guid: 3b8c6a5be3823f846b80232605dfdac4, type: 3}
+  - text: "\u4EC0\u4E48\uFF1F"
+    choices: []
+    nextNodeIndex: 22
+    speakerName: "\u8D75\u7075\u513F"
+    speakerPortrait: {fileID: 21300000, guid: 7aacdcb0d9e228a47bf93a8336ef36f7, type: 3}
+  - text: "\u65E2\u7136\u547D\u8FD0\u90FD\u5DF2\u7ECF\u662F\u65E2\u5B9A\u7684\uFF0C\u4E3A\u4EC0\u4E48\u8FD8\u8981\u8BA9\u6211\u4EEC\u53EF\u4EE5\u770B\u5230\u539F\u6765\u7684\u4E16\u754C\u53D1\u751F\u4E86\u4EC0\u4E48\u5462\uFF1F"
+    choices: []
+    nextNodeIndex: 23
+    speakerName: "\u674E\u900D\u9065"
+    speakerPortrait: {fileID: 21300000, guid: 3b8c6a5be3823f846b80232605dfdac4, type: 3}
+  - text: "\uFF08\u2026\u2026\uFF09"
+    choices: []
+    nextNodeIndex: -1
+    speakerName: "\u8D75\u7075\u513F"
+    speakerPortrait: {fileID: 21300000, guid: 7aacdcb0d9e228a47bf93a8336ef36f7, type: 3}

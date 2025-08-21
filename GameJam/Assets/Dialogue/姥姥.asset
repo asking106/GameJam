@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762142ea9550b4b40a6b2f4381b09b1f, type: 3}
+  m_Name: "\u59E5\u59E5"
+  m_EditorClassIdentifier: 
+  nodes:
+  - text: "\u7075\u513F\uFF01\u4F60\u7ADF\u6562\u5E26\u5916\u4EBA\u64C5\u95EF\u6C34\u6708\u5BAB\u7981\u5730\uFF1F\uFF01"
+    choices: []
+    nextNodeIndex: 1
+    speakerName: "\u59E5\u59E5"
+    speakerPortrait: {fileID: 21300000, guid: 76703107b2d1eeb4aba6408854eae205, type: 3}
+  - text: "\u59E5\u59E5\u6055\u7F6A\uFF01\u8FD9\u4F4D\u516C\u5B50\u662F\u4E3A\u6551\u4EB2\u4EBA\u6027\u547D\u800C\u6765\uFF0C\u6C42\u60A8\u8D50\u836F\u2026"
+    choices: []
+    nextNodeIndex: 2
+    speakerName: "\u8D75\u7075\u513F"
+    speakerPortrait: {fileID: 21300000, guid: 7aacdcb0d9e228a47bf93a8336ef36f7, type: 3}
+  - text: "\u4F60\u8DEA\u4EC0\u4E48\u8DEA\uFF01\u8FD9\u8001\u592A\u592A\u8C01\u554A\uFF1F\u600E\u4E48\u8FD8\u7A7F\u53E4\u88C5\u554A\uFF1F"
+    choices: []
+    nextNodeIndex: 3
+    speakerName: "\u674E\u900D\u9065"
+    speakerPortrait: {fileID: 21300000, guid: 3b8c6a5be3823f846b80232605dfdac4, type: 3}
+  - text: "\u65E0\u77E5\u5C0F\u513F\uFF01\u82E5\u975E\u7075\u513F\u6C42\u60C5\uFF0C\u8001\u8EAB\u65E9\u5C06\u4F60\u6254\u8FDB\u70BC\u4E39\u7089\uFF01"
+    choices: []
+    nextNodeIndex: 4
+    speakerName: "\u59E5\u59E5"
+    speakerPortrait: {fileID: 21300000, guid: 76703107b2d1eeb4aba6408854eae205, type: 3}
+  - text: "\u5012\u662F\u526F\u597D\u76AE\u76F8\u2026\u2026\u7F62\u4E86\uFF0C\u7D2B\u91D1\u4E39\u53EF\u4EE5\u7ED9\u4F60\u3002"
+    choices: []
+    nextNodeIndex: 5
+    speakerName: "\u59E5\u59E5"
+    speakerPortrait: {fileID: 21300000, guid: 76703107b2d1eeb4aba6408854eae205, type: 3}
+  - text: "\u5176\u5B9E\u8FD8\u6709\u4E00\u6CD5\u2014\u2014"
+    choices: []
+    nextNodeIndex: 6
+    speakerName: "\u59E5\u59E5"
+    speakerPortrait: {fileID: 21300000, guid: 76703107b2d1eeb4aba6408854eae205, type: 3}
+  - text: "\u5973\u5A32\u540E\u4EBA\u4E00\u6EF4\u5FC3\u5934\u8840\uFF0C\u53EF\u6D3B\u6B7B\u4EBA\u8089\u767D\u9AA8\u3002"
+    choices: []
+    nextNodeIndex: -1
+    speakerName: "\u59E5\u59E5"
+    speakerPortrait: {fileID: 21300000, guid: 76703107b2d1eeb4aba6408854eae205, type: 3}

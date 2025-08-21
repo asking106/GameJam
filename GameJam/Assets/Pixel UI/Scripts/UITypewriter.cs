@@ -107,6 +107,14 @@ namespace PixelsoftGames.PixelUI
             if (typewriter != null)
                 StopCoroutine(typewriter);
 
+            if (label == null)
+                label = GetComponent<Text>();
+            if (label == null)
+            {
+                Debug.LogError("UITypewriter: Missing Text component on the same GameObject. Cannot type text.");
+                return;
+            }
+
             label.text = string.Empty;
             s1 = text;
             typewriter = StartCoroutine(Typewriter());

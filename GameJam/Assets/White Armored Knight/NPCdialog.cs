@@ -1,71 +1,50 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class NPCdialog : MonoBehaviour
 {
-    public GameObject games;
-    private bool isin=false;
+    private bool isin = false;
     private Playermovement playermove;
-    public GameObject[] dialogs;
-    public int dialogsCount = 0;
-    // Start is called before the first frame update
 
-    public void Update()
+    // Data-driven dialogue
+    public DialogueData dialogueData;
+    public DialogueController dialogueController;
+    private bool hasStartedDialogue = false;
+
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)&&isin)
+        if (Input.GetKeyDown(KeyCode.E) && isin)
         {
-            if (dialogsCount == dialogs.Length)
+            if (dialogueData != null && dialogueController != null && !hasStartedDialogue)
             {
-                dialogs[dialogsCount - 1].SetActive(false);
-                playermove.enabled = true;
-
-                return;
-
+                hasStartedDialogue = true;
+                if (playermove != null) playermove.enabled = false;
+                dialogueController.OnDialogueEnded += HandleDialogueEnded;
+                dialogueController.Begin(dialogueData);
             }
-            else
-            {
-                playermove.enabled=false;
-            }
-            
-
-            if(dialogsCount!=0)
-            dialogs[dialogsCount-1].SetActive(false);
-            dialogs[dialogsCount].SetActive(true);
-            dialogsCount++;
-            
-
-         }
+        }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
-        { 
-                
-                 playermove= collision.GetComponent<Playermovement>();
-                 
-                isin = true;
-
-
-             
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playermove = collision.GetComponent<Playermovement>();
+            isin = true;
         }
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
-
-
-
             isin = false;
-
-
-
         }
     }
-    
-    public void setback()
+
+    private void HandleDialogueEnded()
     {
-        playermove.enabled = true;
+        if (playermove != null) playermove.enabled = true;
+        hasStartedDialogue = false;
+        if (dialogueController != null) dialogueController.OnDialogueEnded -= HandleDialogueEnded;
     }
 }
