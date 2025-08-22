@@ -84,14 +84,31 @@ public class PlayerAttack : MonoBehaviour
             ThrowLightsaber();
         }
     }
+    Camera FindActiveCamera()
+    {
+        // 首先尝试获取主摄像机
+        Camera mainCam = Camera.main;
+        if (mainCam != null && mainCam.isActiveAndEnabled)
+            return mainCam;
+
+        // 如果没有主摄像机，查找所有激活的摄像机
+        foreach (Camera cam in Camera.allCameras)
+        {
+            if (cam != null && cam.isActiveAndEnabled && cam.gameObject.activeInHierarchy)
+                return cam;
+        }
+
+        return null;
+    }
+
 
     // 开始形成光剑
     void StartFormation()
     {
         // 获取鼠标在屏幕上的位置并转换为世界坐标
         Vector3 mousePosition = Input.mousePosition;
-        mousePosition.z = -Camera.main.transform.position.z;
-        Vector3 spawnPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        mousePosition.z = -FindActiveCamera().transform.position.z;
+        Vector3 spawnPosition = FindActiveCamera().ScreenToWorldPoint(mousePosition);
 
         // 实例化生成特效
         if (spawnEffectPrefab != null)
@@ -126,8 +143,8 @@ public class PlayerAttack : MonoBehaviour
         box.enabled = false;
         // 让光剑跟随鼠标移动
         Vector3 mousePosition = Input.mousePosition;
-        mousePosition.z = -Camera.main.transform.position.z;
-        Vector3 targetPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        mousePosition.z = -FindActiveCamera().transform.position.z;
+        Vector3 targetPosition = FindActiveCamera().ScreenToWorldPoint(mousePosition);
 
         // 平滑移动到鼠标位置
         currentLightsaber.transform.position = Vector3.Lerp(
