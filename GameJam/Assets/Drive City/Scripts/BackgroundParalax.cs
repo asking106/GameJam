@@ -11,6 +11,7 @@ public class BackgroundParalax : MonoBehaviour
 
     public float startSensitivity = 0;
     public float endSensitivity = 0.4f;
+    private Transform child;
 
     private Vector2 lastPos = Vector2.zero;
     private Vector2 delta = Vector2.zero;
@@ -24,7 +25,15 @@ public class BackgroundParalax : MonoBehaviour
 
         for (int i = 0; i < backgrounds.Length; ++i)
         {
-            var child = backgrounds[i].GetChild(0);
+            if (backgrounds[i].childCount != 0)
+            {
+                 child = backgrounds[i].GetChild(0);
+            }
+            else
+            {
+                child = backgrounds[i];
+            }
+           
             var childTransform = child.transform;
 
             var newObj = Instantiate(child.gameObject, childTransform.position, childTransform.rotation);
@@ -45,7 +54,10 @@ public class BackgroundParalax : MonoBehaviour
     /// </summary>
     GameObject getRandomSpriteAtLayer(int layer)
     {
-        return backgrounds[layer].GetChild(Random.Range(0, backgrounds[layer].childCount)).gameObject;
+        if (backgrounds[layer].childCount != 0)
+        { return backgrounds[layer].GetChild(Random.Range(0, backgrounds[layer].childCount)).gameObject; }
+        else
+            return backgrounds[layer].gameObject;
     }
 
     void Update()

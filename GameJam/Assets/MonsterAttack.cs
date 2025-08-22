@@ -1,3 +1,5 @@
+using System.Collections;
+using UnityEditor;
 using UnityEngine;
 
 public class EnemyChaser : MonoBehaviour
@@ -6,6 +8,7 @@ public class EnemyChaser : MonoBehaviour
 
     [Header("Detection")]
     public float detectionRadius = 5f; // 发现玩家的半径
+    private bool isdead;
     public LayerMask playerLayer; // 玩家所在的层
 
     [Header("Chasing")]
@@ -24,9 +27,19 @@ public class EnemyChaser : MonoBehaviour
     private float chaseCooldownTimer = 0f; // 追击冷却计时器
     private Rigidbody2D rb;
     private Animator animator; // 可选：用于控制动画
+    public int monsterhealth;
+    public int monsterhealthMax;
+    public Color hurtColor = Color.red;    // 受伤时的颜色
+    public float flashDuration = 0.1f;     // 闪烁持续时间
+    private SpriteRenderer spriteRenderer; // 精灵渲染器
+    private Color originalColor;           // 原始颜色
 
     void Start()
     {
+        isdead = false;
+        spriteRenderer= GetComponent<SpriteRenderer>();
+        originalColor=spriteRenderer.color;
+        monsterhealth= monsterhealthMax;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
@@ -189,6 +202,48 @@ public class EnemyChaser : MonoBehaviour
         // 绘制攻击/停止范围（红色）
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, stoppingDistance);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag=="flyingWeapon")
+        {
+             
+            Projectile2D weapon = collision.gameObject.GetComponent<Projectile2D>();
+            setHealth(weapon.damage);
+        }
+    }
+     
+    private void setHealth(int health)
+    {     
+        if(isdead) return;
+        monsterhealth-=health;
+        StartCoroutine(HurtEffect());
+        if (monsterhealth <= 0)
+        {
+            isdead=true;
+            rb.velocity = Vector3.zero;
+            animator.SetTrigger("IsDead");
+            this.enabled=false;
+             
+            
+        }
+    }
+    IEnumerator HurtEffect()
+    {
+        if (spriteRenderer != null)
+        {
+            // 变红（受伤效果）
+            spriteRenderer.color = hurtColor;
+
+            // 等待短暂时间
+            yield return new WaitForSeconds(flashDuration);
+
+            // 恢复原色
+            spriteRenderer.color = originalColor;
+
+             
+          
+        }
     }
 
     // 可选：显示冷却时间（用于调试）

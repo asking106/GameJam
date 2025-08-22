@@ -16,8 +16,10 @@ public class Playermovement : MonoBehaviour
 	[SerializeField] private Vector2 groundCheckSize = new Vector2(0.50f, 0.07f);
 	[SerializeField] private LayerMask groundLayer;
 	[SerializeField] private LayerMask wallLayer;
+    private bool isInvulnerable = false;
+	
 
-	[HideInInspector] public Vector2 move;
+    [HideInInspector] public Vector2 move;
 
 	private Rigidbody2D myBody;
 	private SpriteRenderer mySprite;
@@ -26,11 +28,26 @@ public class Playermovement : MonoBehaviour
 	[HideInInspector] public bool isDashing;
 	private bool canDash = true;
 	private bool dashButtonPressed;
+	public int playerHealth;
+	public int playerHealthMax;
+    public float flashDuration = 0.15f; // 变红持续时间
+    public int flashCount = 2; // 闪烁次数
+	public GameObject specialSkill;
+	public Transform skillposition;
+	private bool isOn=false;
+    private SpriteRenderer spriteRenderer;
+	public float skillTime;
+	private float skillTimer;
+    private Color originalColor;
+    public Color damageColor = new Color(1f, 0.2f, 0.2f); // 红色
+	public AudioClip specialSkillaudio;
+	public AudioSource special;
 
-	//Jump
-	[HideInInspector] public bool grounded;
+    //Jump
+    [HideInInspector] public bool grounded;
 	[HideInInspector] public bool isJumping;
 	private bool jumpButtonPressed;
+	
 
 	//WallJump
 	[HideInInspector] public bool isWallSlidingRight;
@@ -46,7 +63,10 @@ public class Playermovement : MonoBehaviour
 	#endregion
 	void Awake() 
 	{
-		myBody = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
+        playerHealth =playerHealthMax;
+        myBody = GetComponent<Rigidbody2D>();
 		mySprite = GetComponent<SpriteRenderer>();
 		playerAttack = GetComponent<PlayerAttack>();
 		playerAnim = GetComponent<PlayerAnimation>();
@@ -55,7 +75,7 @@ public class Playermovement : MonoBehaviour
 	{	
 		if (isDashing || isWallJump || playerAttack.skillAttack || playerAnim.deathIsPlaying)
 			return;
-
+		skillTimer += Time.deltaTime;
 		//Input Handler
 		move.x = Input.GetAxisRaw("Horizontal");
 		dashButtonPressed = Input.GetKeyDown(KeyCode.W);
@@ -76,9 +96,24 @@ public class Playermovement : MonoBehaviour
 		
 		if (isWallSliding && jumpButtonPressed)
 			StartCoroutine(walljump());
+		if(Input.GetMouseButtonDown(1))
+		{
+			if(skillTimer>=skillTime)
+			{
+				isOn = true;
+				skillTimer = 0;
+				special.PlayOneShot(specialSkillaudio);
+				StartCoroutine(specialskill());
+			}
+		}
 	}
+    IEnumerator  specialskill()
+    {
+		yield return new WaitForSeconds(0.5f);
+		isOn = false;
+    }
 
-	void FixedUpdate()
+    void FixedUpdate()
     {
 		if (isDashing || isWallJump || playerAttack.skillAttack || playerAnim.deathIsPlaying)
 			return;
@@ -235,4 +270,58 @@ public class Playermovement : MonoBehaviour
 			mySprite.flipX = false;
 	}
     #endregion
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+		{	
+			if(isOn)
+			{
+				Instantiate(specialSkill, skillposition.position, Quaternion.identity);
+				isInvulnerable = true;
+				Invoke("skillSpecial", 2f);
+                return;
+			}
+			if(isInvulnerable)
+			{
+				return;
+			}
+			EnemyChaser enemy = collision.transform.GetComponentInParent<EnemyChaser>();
+            StartCoroutine(DamageEffect());
+            playerHealth -=enemy.attackDamage;
+            isInvulnerable=true;
+
+
+
+
+
+        }
+    }
+	public void skillSpecial()
+	{
+        isInvulnerable = false;
+    }
+    private IEnumerator DamageEffect()
+    {
+         
+
+        // 闪烁效果
+        for (int i = 0; i < flashCount; i++)
+        {
+            // 变红
+            spriteRenderer.color = damageColor;
+            yield return new WaitForSeconds(flashDuration / 2);
+
+            // 恢复原色
+            spriteRenderer.color = originalColor;
+            yield return new WaitForSeconds(flashDuration / 2);
+        }
+
+        // 确保最终颜色正确
+        spriteRenderer.color = originalColor;
+
+        // 取消无敌状态（可以设置更长的无敌时间）
+        
+        isInvulnerable = false;
+    }
 }

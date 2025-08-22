@@ -38,6 +38,8 @@ public class PlayerAttack : MonoBehaviour
     public float formationTime = 1.5f;       // 光剑形成时间
     public float throwForce = 20f;           // 投掷力量
     public float returnDelay = 3f;           // 没有命中时的返回延迟
+    public int PlayerDamage;
+    private BoxCollider2D box;
 
     [Header("音频")]
     public AudioClip spawnSound;             // 生成音效
@@ -99,6 +101,8 @@ public class PlayerAttack : MonoBehaviour
 
         // 实例化光剑
         currentLightsaber = Instantiate(lightsaberPrefab, spawnPosition, Quaternion.identity);
+        currentLightsaber.GetComponent<Projectile2D>().damage =PlayerDamage;
+        Debug.Log(PlayerDamage);
 
         // 设置初始尺寸为0
         formationScale = currentLightsaber.transform.localScale;
@@ -118,6 +122,8 @@ public class PlayerAttack : MonoBehaviour
     // 光剑形成过程
     void FormationProcess()
     {
+        box = currentLightsaber.GetComponent<BoxCollider2D>();
+        box.enabled = false;
         // 让光剑跟随鼠标移动
         Vector3 mousePosition = Input.mousePosition;
         mousePosition.z = -Camera.main.transform.position.z;
@@ -171,10 +177,12 @@ public class PlayerAttack : MonoBehaviour
         isForming = false;
         isThrown = true;
         timer = 0;
-         
+        
+        box.enabled = true;
 
         // 添加刚体组件（如果不存在）
         Rigidbody2D rb = currentLightsaber.GetComponent<Rigidbody2D>();
+
         if (rb == null)
         {
             rb = currentLightsaber.AddComponent<Rigidbody2D>();
@@ -187,9 +195,11 @@ public class PlayerAttack : MonoBehaviour
         // 添加碰撞检测
        
         Projectile2D projectile = currentLightsaber.GetComponent<Projectile2D>();
+        
         if (projectile == null)
         {
             projectile = currentLightsaber.AddComponent<Projectile2D>();
+            
         }
         if(isok)
         {

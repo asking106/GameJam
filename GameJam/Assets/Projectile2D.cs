@@ -8,11 +8,14 @@ public class Projectile2D : MonoBehaviour
     
         public float returnDelay = 3f;
         public GameObject impactEffect;
+    
 
         private bool hasHit = false;
+             public int damage;
         private float timer = 0f;
 
-        public void Initialize(float delay)
+    
+    public void Initialize(float delay)
         {
             returnDelay = delay;
         }
@@ -40,8 +43,9 @@ public class Projectile2D : MonoBehaviour
                 // 生成碰撞特效
                 if (impactEffect != null)
                 {
-                    Instantiate(impactEffect, transform.position, Quaternion.identity);
-                }
+                ContactPoint2D contact = collision.contacts[0];
+                Instantiate(impactEffect, contact.point, Quaternion.identity);
+            }
 
                 // 移除物理组件
                 Rigidbody2D rb = GetComponent<Rigidbody2D>();
