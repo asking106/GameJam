@@ -124,7 +124,10 @@ NavMeshSettings:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!1 &19471176
 GameObject:
   m_ObjectHideFlags: 0
@@ -8207,7 +8210,10 @@ MonoBehaviour:
   - {x: 2.5413885, y: 3.919013, z: 0}
   - {x: -1.8578091, y: 4.370537, z: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!1 &670557989
 GameObject:
   m_ObjectHideFlags: 0
@@ -29256,4 +29262,7 @@ SceneRoots:
   - {fileID: 1070060527}
   - {fileID: 670557992}
   - {fileID: 19471178}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
