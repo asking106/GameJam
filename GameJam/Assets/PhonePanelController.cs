@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Assets.FantasyInventory.Scripts.Interface.Elements;
 
 public class PhonePanelController : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PhonePanelController : MonoBehaviour
     public Button btnBag;
     public float showAnimTime = 0.3f;     
     public Button btnBack;
+    public ScrollInventory ScrolInventory;
     
     // Notification UI
     public GameObject infoBadge;            // 未读角标容器（红点）
@@ -162,6 +164,7 @@ public class PhonePanelController : MonoBehaviour
         attributePanel.SetActive(false);
         infoPanel.SetActive(false);
         BagPanel.SetActive(true);
+        ScrolInventory.Refresh();
         if (btnBack != null) btnBack.gameObject.SetActive(true);
     }
 
