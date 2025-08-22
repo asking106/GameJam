@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 82674518392044794}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +110,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.5900002, y: 1.75, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7742938, y: 0.7742938, z: 0.7742938}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4654696562364608}
@@ -156,10 +156,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -105590301
+  m_SortingLayer: 2
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: d7eb33e1536d0234bb4fd7519dd5e04e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e4a57e8b08b6f541a09b38a3bfb58df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -180,7 +180,7 @@ Animator:
   m_GameObject: {fileID: 1693126858197896}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 61ed1205a275ec8408091be29f25145b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 12342875d5fbea84fa9051cbea5e4750, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -250,18 +250,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0025348663, y: -0.033278465}
+  m_Offset: {x: 0.049511433, y: 0.053464055}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.58235127, y: 0.5}
-    oldSize: {x: 1.25, y: 1.171875}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5, y: 5}
     newSize: {x: 1.25, y: 1.171875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.40588856, y: 1.0647101}
+  m_Size: {x: 2.7248106, y: 4.9103193}
   m_EdgeRadius: 0
 --- !u!114 &114959693068757116
 MonoBehaviour:
@@ -280,13 +280,13 @@ MonoBehaviour:
   groundCheckPoint: {fileID: 4626469563548476}
   rightWallCheck: {fileID: 4654696562364608}
   leftWallCheck: {fileID: 4620164928934070}
-  groundCheckSize: {x: 0.49, y: 0.03}
+  groundCheckSize: {x: 0.49, y: 0.25}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 8
   wallLayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 0
   move: {x: 0, y: 0}
   isDashing: 0
   grounded: 0
@@ -329,6 +329,16 @@ MonoBehaviour:
   attackPower: 50
   skillAttackCharge: 0
   skillAttacking: 0
+  lightsaberPrefab: {fileID: 8249515493170868278, guid: 5b85c2b88a557ae4aa6eaa43a0187f38, type: 3}
+  spawnEffectPrefab: {fileID: 1356452392861584662, guid: aba13ff34ca05b74caaf87bc42ad3a54, type: 3}
+  formationTime: 1.5
+  throwForce: 20
+  returnDelay: 3
+  spawnSound: {fileID: 8300000, guid: fe333be90af83ea4d83ad69947ed8231, type: 3}
+  throwSound: {fileID: 8300000, guid: 244192ce8211b314ebae4d0ce0d4034a, type: 3}
+  finishSound: {fileID: 8300000, guid: 3495e7915027ca24180d8be8aba61f32, type: 3}
+  audioSource: {fileID: 0}
+  Rotatetime: 300
 --- !u!114 &114784045338051012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1641,7 +1651,7 @@ Transform:
   m_GameObject: {fileID: 1957963955957336}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02, y: -0.558, z: 0}
+  m_LocalPosition: {x: -0.02, y: -2.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
