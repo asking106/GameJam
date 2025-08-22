@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Playermovement : MonoBehaviour
 {
 	#region FIELD
@@ -23,7 +23,8 @@ public class Playermovement : MonoBehaviour
 
 	private Rigidbody2D myBody;
 	private SpriteRenderer mySprite;
-
+	public Slider slider;
+	public Text text;
 	//dash
 	[HideInInspector] public bool isDashing;
 	private bool canDash = true;
@@ -72,7 +73,9 @@ public class Playermovement : MonoBehaviour
 		playerAnim = GetComponent<PlayerAnimation>();
 	}
 	void Update()
-	{	
+	{
+		slider.value =(float) playerHealth/playerHealthMax;
+		text.text = "" + playerHealth + "/" + playerHealthMax;
 		if (isDashing || isWallJump || playerAttack.skillAttack || playerAnim.deathIsPlaying)
 			return;
 		skillTimer += Time.deltaTime;
