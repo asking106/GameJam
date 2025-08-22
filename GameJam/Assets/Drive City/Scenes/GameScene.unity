@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
 --- !u!1 &19471176
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +375,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
->>>>>>> Stashed changes
 --- !u!1 &35546096
 GameObject:
   m_ObjectHideFlags: 0
@@ -8209,11 +8203,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 2.5413885, y: 3.919013, z: 0}
   - {x: -1.8578091, y: 4.370537, z: 0}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
 --- !u!1 &670557989
 GameObject:
   m_ObjectHideFlags: 0
@@ -8443,7 +8432,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
->>>>>>> Stashed changes
 --- !u!1 &682885311
 GameObject:
   m_ObjectHideFlags: 0
@@ -20877,8 +20865,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-<<<<<<< Updated upstream
-=======
 --- !u!1 &1712129196
 GameObject:
   m_ObjectHideFlags: 0
@@ -20963,7 +20949,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1139312955}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> Stashed changes
 --- !u!1 &1713655566
 GameObject:
   m_ObjectHideFlags: 0
@@ -29250,9 +29235,7 @@ SceneRoots:
   - {fileID: 226157863}
   - {fileID: 2978826434696926154}
   - {fileID: 364189239}
-<<<<<<< Updated upstream
   - {fileID: 1359214541}
-=======
   - {fileID: 1890624679}
   - {fileID: 1821907780}
   - {fileID: 1139312955}
@@ -29262,7 +29245,3 @@ SceneRoots:
   - {fileID: 1070060527}
   - {fileID: 670557992}
   - {fileID: 19471178}
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
